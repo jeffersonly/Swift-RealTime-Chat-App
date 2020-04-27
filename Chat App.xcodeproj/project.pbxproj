@@ -15,6 +15,8 @@
 		8531FF1E24565EA6001ED017 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8531FF1D24565EA6001ED017 /* GoogleService-Info.plist */; };
 		8531FF202456608B001ED017 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8531FF1F2456608B001ED017 /* SessionStore.swift */; };
 		8531FF242456643D001ED017 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8531FF232456643D001ED017 /* AuthView.swift */; };
+		8531FF282456D11F001ED017 /* FaceBookLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8531FF272456D11F001ED017 /* FaceBookLoginView.swift */; };
+		8531FF2C2456DAD6001ED017 /* GoogleSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8531FF2B2456DAD6001ED017 /* GoogleSignInView.swift */; };
 		E21ECB0D639F2EADB9CC05EA /* Pods_Chat_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE996A98441526A536DE0AA /* Pods_Chat_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		8531FF1D24565EA6001ED017 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8531FF1F2456608B001ED017 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		8531FF232456643D001ED017 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		8531FF272456D11F001ED017 /* FaceBookLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceBookLoginView.swift; sourceTree = "<group>"; };
+		8531FF2B2456DAD6001ED017 /* GoogleSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInView.swift; sourceTree = "<group>"; };
 		864AFB3597055FB856EAFA9A /* Pods-Chat App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chat App/Pods-Chat App.debug.xcconfig"; sourceTree = "<group>"; };
 		E7F9AAAF9FC80143AAE79F5F /* Pods-Chat App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chat App/Pods-Chat App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,8 +90,10 @@
 			children = (
 				8531FF0924565B7E001ED017 /* AppDelegate.swift */,
 				8531FF1F2456608B001ED017 /* SessionStore.swift */,
+				8531FF2B2456DAD6001ED017 /* GoogleSignInView.swift */,
 				8531FF0B24565B7F001ED017 /* SceneDelegate.swift */,
 				8531FF232456643D001ED017 /* AuthView.swift */,
+				8531FF272456D11F001ED017 /* FaceBookLoginView.swift */,
 				8531FF0D24565B7F001ED017 /* ContentView.swift */,
 				8531FF0F24565B80001ED017 /* Assets.xcassets */,
 				8531FF1424565B80001ED017 /* LaunchScreen.storyboard */,
@@ -117,6 +123,7 @@
 				8531FF0324565B7E001ED017 /* Frameworks */,
 				8531FF0424565B7E001ED017 /* Resources */,
 				3C6B8537D7BC5F66EC5C3699 /* [CP] Embed Pods Frameworks */,
+				3F1B1256875107F057358695 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,6 +190,10 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Chat App/Pods-Chat App-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
@@ -192,6 +203,10 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
@@ -200,6 +215,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chat App/Pods-Chat App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F1B1256875107F057358695 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Chat App/Pods-Chat App-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chat App/Pods-Chat App-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DBE08FF23C7B1207D85F9EB2 /* [CP] Check Pods Manifest.lock */ = {
@@ -235,7 +272,9 @@
 				8531FF242456643D001ED017 /* AuthView.swift in Sources */,
 				8531FF0C24565B7F001ED017 /* SceneDelegate.swift in Sources */,
 				8531FF202456608B001ED017 /* SessionStore.swift in Sources */,
+				8531FF282456D11F001ED017 /* FaceBookLoginView.swift in Sources */,
 				8531FF0E24565B7F001ED017 /* ContentView.swift in Sources */,
+				8531FF2C2456DAD6001ED017 /* GoogleSignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +420,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Jefferson---Sean.Chat-App";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sjsu.chatapplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -402,7 +441,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Jefferson---Sean.Chat-App";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sjsu.chatapplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -61,6 +61,20 @@ struct SignInView: View {
                     .padding()
             }
             
+            GoogleSignView()
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+                .frame(height: 50)
+                .foregroundColor(.white)
+                .font(.system(size: 14, weight: .bold))
+                .cornerRadius(5)
+            
+            FaceBookLoginView()
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+                .frame(height: 50)
+                .foregroundColor(.white)
+                .font(.system(size: 14, weight: .bold))
+                .cornerRadius(5)
+            
             Spacer()
             
             NavigationLink(destination: SignUpView()) {

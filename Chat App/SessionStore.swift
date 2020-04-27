@@ -9,6 +9,7 @@
 import SwiftUI
 import Firebase
 import Combine
+import GoogleSignIn
 
 class SessionStore: ObservableObject {
     var didChange = PassthroughSubject<SessionStore, Never>()
@@ -36,6 +37,7 @@ class SessionStore: ObservableObject {
     func signOut() {
         do {
             try Auth.auth().signOut()
+            GIDSignIn.sharedInstance()?.signOut()
             self.session = nil
         } catch {
             print("Error signing out")
