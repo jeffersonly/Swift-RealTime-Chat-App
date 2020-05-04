@@ -95,15 +95,19 @@ struct SignInView: View {
 struct SignUpView: View {
     @State var email: String = ""
     @State var password: String = ""
+    @State var name: String = ""
     @State var error: String = ""
+    @State var isShowingImagePicker = false
+    @State var imageInBox = UIImage()
     @EnvironmentObject var session: SessionStore
     
     func signUp() {
-        session.signUp(email: email, password: password) { (result, error) in
+        session.signUp(email: email, name: name, password: password, image: imageInBox) { (result, error) in
             if let error = error {
                 self.error = error.localizedDescription
             } else {
                 self.email = ""
+                self.name = ""
                 self.password = ""
             }
         }
@@ -117,8 +121,29 @@ struct SignUpView: View {
                 .font(.system(size: 18, weight: .medium))
                 .foregroundColor(Color("Gray"))
             
+            //Image Picker for profile
+            Image(uiImage: imageInBox)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 200, height: 200)
+                .border(Color.black, width: 1)
+                .clipped()
+            Button(action: {
+                self.isShowingImagePicker.toggle()
+            }, label: {
+                Text("Select Image")
+                    .font(.system(size: 18))
+            })
+                .sheet(isPresented: $isShowingImagePicker, content: {
+                    ImagePickerView(isPresented: self.$isShowingImagePicker, selectedImage: self.$imageInBox)
+                })
+            
             VStack(spacing: 18) {
                 TextField("Email Address", text: $email)
+                    .font(.system(size: 14))
+                    .padding(12)
+                    .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(UIColor.purple), lineWidth: 1))
+                TextField("Name", text: $name)
                     .font(.system(size: 14))
                     .padding(12)
                     .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(UIColor.purple), lineWidth: 1))
@@ -163,3 +188,38 @@ struct AuthView_Previews: PreviewProvider {
     }
 }
 
+//Image box for registering image
+struct ImagePickerView: UIViewControllerRepresentable {
+    @Binding var isPresented: Bool
+    @Binding var selectedImage: UIImage
+    
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePickerView>) -> UIViewController {
+        let controller = UIImagePickerController()
+        controller.delegate = context.coordinator
+        return controller
+    }
+    
+    func makeCoordinator() -> ImagePickerView.Coordinator {
+        return Coordinator(parent: self)
+    }
+    
+    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        
+        let parent: ImagePickerView
+        init(parent: ImagePickerView) {
+            self.parent = parent
+        }
+        
+        func imagePickerController(_ _picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let selectedImageFromPicker = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                print(selectedImageFromPicker)
+                self.parent.selectedImage = selectedImageFromPicker
+            }
+            self.parent.isPresented = false
+        }
+    }
+    
+    func updateUIViewController(_ uiViewController: ImagePickerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ImagePickerView>) {
+        
+    }
+}
