@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseAuth
 
 struct ContentView: View {
     @EnvironmentObject var session: SessionStore
@@ -18,10 +20,11 @@ struct ContentView: View {
     var body: some View {
         Group {
             if(session.session != nil) {
-                Text("Welcome back user!")
-                Button(action: session.signOut) {
-                    Text("Sign Out")
-                }
+//                Text("Welcome back \(session.session!.name ?? "user")")
+//                Button(action: session.signOut) {
+//                    Text("Sign Out")
+//                }
+                ProfileView();
             } else {
                 AuthView()
             }

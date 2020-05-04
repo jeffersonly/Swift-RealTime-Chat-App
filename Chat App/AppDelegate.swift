@@ -36,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 print((err?.localizedDescription)!)
                 return
             }
-            print(res!.user.email)
         }
     }
 
