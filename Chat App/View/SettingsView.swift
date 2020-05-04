@@ -25,7 +25,7 @@ struct SettingsView: View {
                 NavigationView {
                     Color.black.edgesIgnoringSafeArea(.all)
                     Text("")
-                        .navigationBarTitle("Profile", displayMode: .inline)
+                        .navigationBarTitle("", displayMode: .inline)
             
                     
                     

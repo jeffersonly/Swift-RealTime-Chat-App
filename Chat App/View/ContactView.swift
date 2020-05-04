@@ -47,16 +47,22 @@ struct ContactView: View {
                     .labelsHidden()
                     .offset(y: -145)
                 Button("Block User", action: blockUser)
-                    .foregroundColor(Color.white)
+                    .background(Color.white)
+                    .foregroundColor(Color.black)
                     .border(Color.white, width: 1)
+                    .cornerRadius(35)
                     .font(.system(size: 30))
                     .offset(y: -80)
-
+                
                 Button("Delete Chat", action: deleteChat)
-                    .foregroundColor(Color.white)
+                    
+                    .background(Color.white)
+                    .foregroundColor(Color.black)
                     .border(Color.white, width: 1)
+                    .cornerRadius(35)
                     .font(.system(size: 30))
                     .offset(y: -50)
+                
                 
                 
             }
