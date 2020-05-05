@@ -10,10 +10,12 @@ import SwiftUI
 
 // view for an item in a list of friends
 struct FriendItemView: View {
+    var name: String
     var body: some View {
-                HStack {
-                   ContactItemView()
+        HStack {
+                    ContactItemView(name: self.name)
                        .offset(x: -30)
+                        .frame(width: 220, alignment: .leading)
                        Button("+ Add Friend", action: addFriend)
                            .background(Color.white)
                            .foregroundColor(Color.black)
@@ -21,6 +23,14 @@ struct FriendItemView: View {
                            .font(.system(size: 20))
                        .cornerRadius(40)
                    }
+    }
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    init() {
+        self.name = ""
     }
     // TODO add friend
     func addFriend() {
