@@ -24,7 +24,7 @@ struct ContentView: View {
 //                Button(action: session.signOut) {
 //                    Text("Sign Out")
 //                }
-                ProfileView();
+                HomeView()
             } else {
                 AuthView()
             }

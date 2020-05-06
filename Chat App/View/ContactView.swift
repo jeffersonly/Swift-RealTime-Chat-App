@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContactView: View {
     @State var notificationsOn = true
+    var name: String
     var body: some View {
         
         ZStack {
@@ -28,10 +29,11 @@ struct ContactView: View {
                     
                 }
                 // TODO replace text with user info
-                Text("contact name")
+                Text(self.name)
                     .offset(y: -165)
                     .foregroundColor(Color.white)
                     .font(.system(size: 40))
+                    .frame(width: 400.0, height: 50.0)
                 
                 Image("profilePic")
                     .resizable()
@@ -71,6 +73,14 @@ struct ContactView: View {
         
         
         
+    }
+    
+    init() {
+        self.name = ""
+    }
+    
+    init(name: String) {
+        self.name = name
     }
     
     func blockUser() {

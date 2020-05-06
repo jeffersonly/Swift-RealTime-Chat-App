@@ -12,6 +12,12 @@ struct SettingsView: View {
     
     @State var notificationsOn = true
     @State var soundOn = true
+    @EnvironmentObject var session: SessionStore
+    
+    func getUser() {
+        session.listen()
+    }
+    
     var body: some View {
         
         ZStack {
@@ -21,7 +27,7 @@ struct SettingsView: View {
                 Text("Settings")
                     .foregroundColor(Color.white)
                     .font(.system(size: 40))
-                    .offset(y: -50)
+                    .offset(y: 0)
                 NavigationView {
                     Color.black.edgesIgnoringSafeArea(.all)
                     Text("")
@@ -42,20 +48,22 @@ struct SettingsView: View {
                       .foregroundColor(Color.white)
                     .padding()
                 Button("Reset Password", action: resetPassword)
-                    .foregroundColor(Color.white)
+                    .background(Color.white)
+                    .foregroundColor(Color.black)
                     .border(Color.white, width: 1)
                     .font(.system(size: 30))
                     .offset(y: -80)
 
-                Button("Log Out", action: logOut)
-                    .foregroundColor(Color.white)
+                Button(action: session.signOut) {
+                    Text("Sign Out")
+                }
+                    .foregroundColor(Color.black)
+                    .background(Color.white)
                     .border(Color.white, width: 1)
                     .font(.system(size: 30))
                     .offset(y: -50)
                 
-                
-            }
-            
+            }.onAppear(perform: getUser)
         }
     }
         
@@ -75,6 +83,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView().environmentObject(SessionStore())
     }
 }

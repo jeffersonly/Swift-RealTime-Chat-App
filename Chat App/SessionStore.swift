@@ -95,6 +95,7 @@ class SessionStore: ObservableObject {
         do {
             try Auth.auth().signOut()
             GIDSignIn.sharedInstance()?.signOut()
+            unbind()
             self.session = nil
         } catch {
             print("Error signing out")

@@ -18,11 +18,17 @@
 		8531FF242456643D001ED017 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8531FF232456643D001ED017 /* AuthView.swift */; };
 		8531FF282456D11F001ED017 /* FaceBookLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8531FF272456D11F001ED017 /* FaceBookLoginView.swift */; };
 		8531FF2C2456DAD6001ED017 /* GoogleSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8531FF2B2456DAD6001ED017 /* GoogleSignInView.swift */; };
-		8546FB0E245FB79D0061004B /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB0B245FB79D0061004B /* ContactView.swift */; };
-		8546FB0F245FB79D0061004B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB0C245FB79D0061004B /* ProfileView.swift */; };
-		8546FB10245FB79D0061004B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB0D245FB79D0061004B /* SettingsView.swift */; };
 		8546FB17245FF3250061004B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB16245FF3250061004B /* ImageLoader.swift */; };
 		8546FB19245FF4710061004B /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB18245FF4710061004B /* RemoteImage.swift */; };
+		8546FB5124634A9C0061004B /* FriendItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB4824634A9B0061004B /* FriendItemView.swift */; };
+		8546FB5224634A9C0061004B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB4924634A9B0061004B /* ProfileView.swift */; };
+		8546FB5324634A9C0061004B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB4A24634A9C0061004B /* SettingsView.swift */; };
+		8546FB5424634A9C0061004B /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB4B24634A9C0061004B /* ContactsView.swift */; };
+		8546FB5524634A9C0061004B /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB4C24634A9C0061004B /* AddFriendsView.swift */; };
+		8546FB5624634A9C0061004B /* CreateChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB4D24634A9C0061004B /* CreateChatView.swift */; };
+		8546FB5724634A9C0061004B /* ContactItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB4E24634A9C0061004B /* ContactItemView.swift */; };
+		8546FB5824634A9C0061004B /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB4F24634A9C0061004B /* ContactView.swift */; };
+		8546FB5924634A9C0061004B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB5024634A9C0061004B /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,11 +45,17 @@
 		8531FF232456643D001ED017 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		8531FF272456D11F001ED017 /* FaceBookLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceBookLoginView.swift; sourceTree = "<group>"; };
 		8531FF2B2456DAD6001ED017 /* GoogleSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInView.swift; sourceTree = "<group>"; };
-		8546FB0B245FB79D0061004B /* ContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
-		8546FB0C245FB79D0061004B /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		8546FB0D245FB79D0061004B /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8546FB16245FF3250061004B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		8546FB18245FF4710061004B /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		8546FB4824634A9B0061004B /* FriendItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendItemView.swift; sourceTree = "<group>"; };
+		8546FB4924634A9B0061004B /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		8546FB4A24634A9C0061004B /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		8546FB4B24634A9C0061004B /* ContactsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		8546FB4C24634A9C0061004B /* AddFriendsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
+		8546FB4D24634A9C0061004B /* CreateChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatView.swift; sourceTree = "<group>"; };
+		8546FB4E24634A9C0061004B /* ContactItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactItemView.swift; sourceTree = "<group>"; };
+		8546FB4F24634A9C0061004B /* ContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		8546FB5024634A9C0061004B /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B5A876C579DF9C29D755EE60 /* Pods-Chat App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chat App/Pods-Chat App.debug.xcconfig"; sourceTree = "<group>"; };
 		E8CBC26BC1017677D247125C /* Pods-Chat App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chat App/Pods-Chat App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,13 +126,19 @@
 		8546FB11245FBB420061004B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8546FB4C24634A9C0061004B /* AddFriendsView.swift */,
+				8546FB4E24634A9C0061004B /* ContactItemView.swift */,
+				8546FB4B24634A9C0061004B /* ContactsView.swift */,
+				8546FB4F24634A9C0061004B /* ContactView.swift */,
+				8546FB4D24634A9C0061004B /* CreateChatView.swift */,
+				8546FB4824634A9B0061004B /* FriendItemView.swift */,
+				8546FB5024634A9C0061004B /* HomeView.swift */,
+				8546FB4924634A9B0061004B /* ProfileView.swift */,
+				8546FB4A24634A9C0061004B /* SettingsView.swift */,
 				8531FF2B2456DAD6001ED017 /* GoogleSignInView.swift */,
 				8531FF272456D11F001ED017 /* FaceBookLoginView.swift */,
 				8531FF232456643D001ED017 /* AuthView.swift */,
 				8531FF0D24565B7F001ED017 /* ContentView.swift */,
-				8546FB0B245FB79D0061004B /* ContactView.swift */,
-				8546FB0C245FB79D0061004B /* ProfileView.swift */,
-				8546FB0D245FB79D0061004B /* SettingsView.swift */,
 				8546FB18245FF4710061004B /* RemoteImage.swift */,
 			);
 			path = View;
@@ -301,18 +319,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8546FB5324634A9C0061004B /* SettingsView.swift in Sources */,
+				8546FB5124634A9C0061004B /* FriendItemView.swift in Sources */,
 				8531FF0A24565B7E001ED017 /* AppDelegate.swift in Sources */,
-				8546FB0F245FB79D0061004B /* ProfileView.swift in Sources */,
+				8546FB5824634A9C0061004B /* ContactView.swift in Sources */,
 				8531FF242456643D001ED017 /* AuthView.swift in Sources */,
 				8546FB19245FF4710061004B /* RemoteImage.swift in Sources */,
+				8546FB5624634A9C0061004B /* CreateChatView.swift in Sources */,
 				8531FF0C24565B7F001ED017 /* SceneDelegate.swift in Sources */,
-				8546FB0E245FB79D0061004B /* ContactView.swift in Sources */,
+				8546FB5424634A9C0061004B /* ContactsView.swift in Sources */,
+				8546FB5524634A9C0061004B /* AddFriendsView.swift in Sources */,
 				8546FB17245FF3250061004B /* ImageLoader.swift in Sources */,
-				8546FB10245FB79D0061004B /* SettingsView.swift in Sources */,
 				8531FF202456608B001ED017 /* SessionStore.swift in Sources */,
+				8546FB5924634A9C0061004B /* HomeView.swift in Sources */,
 				8531FF282456D11F001ED017 /* FaceBookLoginView.swift in Sources */,
 				8531FF0E24565B7F001ED017 /* ContentView.swift in Sources */,
+				8546FB5224634A9C0061004B /* ProfileView.swift in Sources */,
 				8531FF2C2456DAD6001ED017 /* GoogleSignInView.swift in Sources */,
+				8546FB5724634A9C0061004B /* ContactItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

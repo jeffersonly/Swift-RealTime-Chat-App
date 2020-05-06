@@ -42,6 +42,7 @@ struct HomeView: View {
                         
                         NavigationLink(destination: CreateChatView()) {
                             Text("+ Create Chat")
+                                .padding(5)
                                 .background(Color.white)
                                 .foregroundColor(Color.black)
                                 .border(Color.white, width: 1)
