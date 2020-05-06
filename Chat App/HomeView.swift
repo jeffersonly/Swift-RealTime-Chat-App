@@ -13,65 +13,86 @@ struct HomeView: View {
     @State private var searchContent: String = ""
     
     var body: some View {
-        ZStack(alignment: .topLeading) {
-            Color.black.edgesIgnoringSafeArea(.all)
-            
-            VStack {
-                HStack {
-                    Button(action: {
-                        
-                    }) {
-                        Image("profilePic")
-                            .renderingMode(.original)
-                            .resizable()
-                            .clipShape(Circle())
-                            .frame(width: 75.0, height: 75.0)
-                            .offset(x: -15)
-                        
-                    }
-                    .offset(x: 0)
-                    .offset(y: 25)
-                    Text("Chats")
-                        .foregroundColor(Color.white)
-                        .offset(y: 25)
-                        .offset(x: -10)
-                        .font(.system(size: 50))
-                    Button("+ New Chat", action: newChatViewTransition)
-                        .font(.system(size: 25))
-                        .foregroundColor(Color.black)
-                        .border(Color.white, width: 2)
-                        .background(Color.white)
-                        .cornerRadius(40)
+        NavigationView {
+            ZStack(alignment: .topLeading) {
+                Color.black.edgesIgnoringSafeArea(.all)
+                
+                VStack {
+                    HStack {
+                        NavigationLink(destination: ProfileView()) {
+                    
+                                Image("profilePic")
+                                    .renderingMode(.original)
+                                    .resizable()
+                                    .clipShape(Circle())
+                                    .frame(width: 75.0, height: 75.0)
+                                    .offset(x: -15)
+                                
+                      
+                        }
                         .offset(x: 0)
                         .offset(y: 25)
+                        Text("Chats")
+                            .foregroundColor(Color.white)
+                            .offset(y: 25)
+                            .offset(x: -10)
+                            .font(.system(size: 35))
+                            .frame(width: 100, height: 50)
+                        
+                        
+                        NavigationLink(destination: CreateChatView()) {
+                            Text("+ Create Chat")
+                                .background(Color.white)
+                                .foregroundColor(Color.black)
+                                .border(Color.white, width: 1)
+                                .font(.system(size: 20))
+                                .cornerRadius(40)
+                        }
+                        .navigationBarTitle("Back")
+                            
+                            
+                            
+                            
+                        .offset(x:0)
+                        .offset(y: 20)
+       
+                        
+                        
+                    }
+                    
+                    
+                    TextField("Search", text: $searchContent)
+                        .offset(x: 25)
+                        .background(Color.white)
+                        .frame(width: 350, height: 25)
+                        .cornerRadius(40)
+                        .padding()
+                    
+                    List {
+                        ContactItemView(name: "Kevin Nguyen")
+                        ContactItemView(name: "Travis Le")
+                        ContactItemView(name: "Tom Smith")
+                        ContactItemView(name: "Anna Tran")
+                        ContactItemView(name: "Brian Le")
+                        ContactItemView(name: "Phil Tran")
+                        ContactItemView(name: "Jenny Luu")
+                        
+                        
+                        
+                        
+                        
+                    }
+                         .frame(width: 450, height: 600)
+                    
+                    
+                    
                     
                 }
-                TextField("Search", text: $searchContent)
-                    .offset(x: 25)
-                    .background(Color.white)
-                    .frame(width: 350, height: 25)
-                    .cornerRadius(40)
-                    .padding()
-                
-                List {
-                    ContactItemView()
-                    ContactItemView()
-                    ContactItemView()
-                    ContactItemView()
-                    ContactItemView()
-                    ContactItemView()
-                    ContactItemView()
-                    ContactItemView()
-                    
-                    
-                    
-                }
-                
-                
-                
-                
+                .offset(y: -18)
             }
+            
         }
+        
     }
     // TODO make the view transition to a new chat view
     func newChatViewTransition() {

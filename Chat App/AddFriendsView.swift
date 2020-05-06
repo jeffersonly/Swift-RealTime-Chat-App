@@ -43,13 +43,14 @@ struct AddFriendsView: View {
                     .offset(y: 0)
                     .padding()
                 
-                FriendItemView()
-                FriendItemView()
-                FriendItemView()
-                FriendItemView()
-                FriendItemView()
-                FriendItemView()
-                FriendItemView()
+                FriendItemView(name: "Travis Le")
+                FriendItemView(name: "Tom Smith")
+                FriendItemView(name: "Anna Tran")
+                FriendItemView(name: "Brian Le")
+                FriendItemView(name: "Phil Tran")
+                FriendItemView(name: "Jenny Luu")
+                FriendItemView(name: "Calvin Ly")
+
                 
                 
             }

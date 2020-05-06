@@ -44,12 +44,12 @@ struct CreateChatView: View {
                     .offset(y: -200)
                     .padding()
                 
-            
                 
-                FriendItemView()
-                FriendItemView()
-                FriendItemView()
-                FriendItemView()
+                
+                FriendItemView(name: "Kevin Nguyen")
+                FriendItemView(name: "Travis Le")
+                FriendItemView(name: "Tom Smith")
+                FriendItemView(name: "Anna Tran")
                 
                 
                 
