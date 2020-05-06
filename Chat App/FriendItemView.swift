@@ -10,19 +10,34 @@ import SwiftUI
 
 // view for an item in a list of friends
 struct FriendItemView: View {
+    @State private var added = false
     var name: String
     var body: some View {
         HStack {
-                    ContactItemView(name: self.name)
-                       .offset(x: -30)
-                        .frame(width: 220, alignment: .leading)
-                       Button("+ Add Friend", action: addFriend)
-                           .background(Color.white)
-                           .foregroundColor(Color.black)
-                           .border(Color.white, width: 1)
-                           .font(.system(size: 20))
-                       .cornerRadius(40)
-                   }
+            ContactItemView(name: self.name)
+                .offset(x: -30)
+                .frame(width: 220, alignment: .leading)
+            Button(action: {
+                self.added = true
+                
+            }) {
+                if(!added) {
+                    Text("+ Add Friend")
+                        .background(Color.white)
+                        .foregroundColor(Color.black)
+                        .border(Color.white, width: 1)
+                        .font(.system(size: 20))
+                        .cornerRadius(40)
+                } else {
+                    Text("Added!")
+                        .background(Color.white)
+                        .foregroundColor(Color.gray)
+                        .border(Color.white, width: 1)
+                        .font(.system(size: 20))
+                        .cornerRadius(40)
+                }
+                } .disabled(added)
+        }
     }
     
     init(name: String) {
@@ -32,10 +47,7 @@ struct FriendItemView: View {
     init() {
         self.name = ""
     }
-    // TODO add friend
-    func addFriend() {
-        
-    }
+
 }
 
 

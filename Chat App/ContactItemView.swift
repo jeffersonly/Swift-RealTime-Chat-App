@@ -13,6 +13,7 @@ struct ContactItemView: View {
     var name: String
     var body: some View {
         
+        
         HStack {
             Image("profilePic")
                 .renderingMode(.original)
@@ -23,6 +24,7 @@ struct ContactItemView: View {
                 .listRowBackground(Color.black)
                 .foregroundColor(Color.white)
                 .offset(x: 20)
+            
             
         }
         .padding()

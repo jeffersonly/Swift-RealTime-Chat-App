@@ -46,22 +46,41 @@ struct ContactsView: View {
                         .padding()
                     
                     List {
-                        
-                        ContactItemView(name: "Kevin Nguyen")
-                        
-                        
-                        
-                        
-                        
-                        
-                        ContactItemView(name: "Travis Le")
-                        ContactItemView(name: "Tom Smith")
-                        ContactItemView(name: "Anna Tran")
-                        ContactItemView(name: "Brian Le")
-                        ContactItemView(name: "Phil Tran")
-                        ContactItemView(name: "Jenny Luu")
-                        ContactItemView(name: "Heather White")
-                        
+                        NavigationLink(destination: ContactView(name:"Travis Le")) {
+                            ContactItemView(name: "Travis Le")
+                        }
+                        .listRowBackground(Color.black)
+                        .background(Color.black)
+                        NavigationLink(destination: ContactView(name:"Tom Smith")) {
+                            ContactItemView(name: "Tom Smith")
+                        }
+                        .listRowBackground(Color.black)
+                        .background(Color.black)
+                        NavigationLink(destination: ContactView(name:"Anna Tran")) {
+                            ContactItemView(name: "Anna Tran")
+                        }
+                        .listRowBackground(Color.black)
+                        .background(Color.black)
+                        NavigationLink(destination: ContactView(name:"Brian Le")) {
+                            ContactItemView(name: "Brian Le")
+                        }
+                        .listRowBackground(Color.black)
+                        .background(Color.black)
+                        NavigationLink(destination: ContactView(name:"Phil Tran")) {
+                            ContactItemView(name: "Phil Tran")
+                        }
+                        .listRowBackground(Color.black)
+                        .background(Color.black)
+                        NavigationLink(destination: ContactView(name:"Jenny Luu")) {
+                            ContactItemView(name: "Jenny Luu")
+                        }
+                        .listRowBackground(Color.black)
+                        .background(Color.black)
+                        NavigationLink(destination: ContactView(name:"Calvin Ly")) {
+                            ContactItemView(name: "Calvin Ly")
+                        }
+                        .listRowBackground(Color.black)
+                        .background(Color.black)
                         
                     }
                     .frame(width: 450, height: 600)
