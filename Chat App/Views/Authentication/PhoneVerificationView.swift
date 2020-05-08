@@ -23,7 +23,7 @@ struct PhoneVerificationView: View {
         
         ZStack(alignment: .topLeading) {
             GeometryReader {_ in
-                VStack(spacing: 2) {
+                VStack(spacing: 5) {
                     Image("chatLogo")
                     Text("Verification Code").font(.largeTitle).fontWeight(.heavy).foregroundColor(.blue)
                     Text("Please enter the verification code sent to your device!")

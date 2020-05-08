@@ -20,14 +20,7 @@ struct PhoneRegisterView: View {
     @State var ID = ""
     
     var body: some View {
-        VStack(spacing: 20) {
-            //Google sign in
-//            GoogleSignView()
-//            .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
-//            .frame(height: 50)
-//            .foregroundColor(.white)
-//            .font(.system(size: 14, weight: .bold))
-//            .cornerRadius(5)
+        VStack(spacing: 10) {
             
             Image("chatLogo")
             Text("Verify Your Number").font(.largeTitle).fontWeight(.heavy).foregroundColor(.blue)
