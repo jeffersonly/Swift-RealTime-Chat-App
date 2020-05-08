@@ -34,8 +34,6 @@ struct CreateAccount: View {
                     } else {
                         Image(uiImage: UIImage(data: self.imageData)!).resizable().renderingMode(.original).frame(width: 90, height: 70).foregroundColor(.blue).clipShape(Circle())
                     }
-                    
-                    
                 }
                 Spacer()
             }
@@ -92,6 +90,10 @@ struct CreateAccount: View {
                     .background(Color.blue)
                     .cornerRadius(10)
             }
+            Text("If stuck on loading for more than 5 seconds, just swipe down! Everything should be finished loading!")
+            .font(.body)
+            .foregroundColor(.gray)
+            .padding(.top, 2)
         }
         .padding()
         .sheet(isPresented: self.$picker, content: {
