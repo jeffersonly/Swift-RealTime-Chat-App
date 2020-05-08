@@ -56,10 +56,12 @@ struct ContentView: View {
                     HomeView().environmentObject(MainObservable())
                 }
             } else {
-                NavigationView {
-                    PhoneRegisterView()
-                }
+//                NavigationView {
+//                    PhoneRegisterView()
+//                }
+                AuthView()
             }
+            
         }.onAppear {
             //event listener for the status of the user
             NotificationCenter.default.addObserver(forName: NSNotification.Name("statusChange"), object: nil, queue: .main) { (_) in

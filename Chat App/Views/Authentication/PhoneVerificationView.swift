@@ -23,7 +23,7 @@ struct PhoneVerificationView: View {
         
         ZStack(alignment: .topLeading) {
             GeometryReader {_ in
-                VStack(spacing: 20) {
+                VStack(spacing: 2) {
                     Image("chatLogo")
                     Text("Verification Code").font(.largeTitle).fontWeight(.heavy).foregroundColor(.blue)
                     Text("Please enter the verification code sent to your device!")
@@ -78,10 +78,10 @@ struct PhoneVerificationView: View {
                             }
                         }) {
                             Text("Verify").frame(width: UIScreen.main.bounds.width - 30, height: 50)
-                        }.foregroundColor(.white)
-                            .background(Color.blue)
-                            .cornerRadius(10)
-                    }
+                    }.foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+                }
             }
         }
         
@@ -89,6 +89,7 @@ struct PhoneVerificationView: View {
                 self.show.toggle()
             }) {
                 Image(systemName: "chevron.left").font(.title)
+                Text("Back")
             }.foregroundColor(.blue)
             
         }

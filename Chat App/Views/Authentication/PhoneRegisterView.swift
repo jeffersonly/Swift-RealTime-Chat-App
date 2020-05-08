@@ -84,3 +84,11 @@ struct PhoneRegisterView: View {
         }
     }
 }
+
+struct PhoneRegisterView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            PhoneRegisterView()
+        }
+    }
+}
