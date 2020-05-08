@@ -29,6 +29,7 @@
 		8546FB822464E1240061004B /* MessagingFuncsAndStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB812464E1240061004B /* MessagingFuncsAndStructs.swift */; };
 		8546FB842465038D0061004B /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB832465038D0061004B /* AuthView.swift */; };
 		8546FB8624651F380061004B /* CustomRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB8524651F380061004B /* CustomRegisterView.swift */; };
+		8546FB88246534140061004B /* ContactProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB87246534140061004B /* ContactProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		8546FB812464E1240061004B /* MessagingFuncsAndStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingFuncsAndStructs.swift; sourceTree = "<group>"; };
 		8546FB832465038D0061004B /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		8546FB8524651F380061004B /* CustomRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRegisterView.swift; sourceTree = "<group>"; };
+		8546FB87246534140061004B /* ContactProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactProfileView.swift; sourceTree = "<group>"; };
 		B5A876C579DF9C29D755EE60 /* Pods-Chat App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chat App/Pods-Chat App.debug.xcconfig"; sourceTree = "<group>"; };
 		E8CBC26BC1017677D247125C /* Pods-Chat App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chat App/Pods-Chat App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,6 +181,7 @@
 			children = (
 				8546FB7D2464DF9E0061004B /* ChatView.swift */,
 				8546FB7F2464E00A0061004B /* NewChatView.swift */,
+				8546FB87246534140061004B /* ContactProfileView.swift */,
 			);
 			path = ChatScreens;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				8531FF0A24565B7E001ED017 /* AppDelegate.swift in Sources */,
 				8546FB7E2464DF9E0061004B /* ChatView.swift in Sources */,
 				8546FB682463D0620061004B /* HomeView.swift in Sources */,
+				8546FB88246534140061004B /* ContactProfileView.swift in Sources */,
 				8546FB842465038D0061004B /* AuthView.swift in Sources */,
 				8531FF0C24565B7F001ED017 /* SceneDelegate.swift in Sources */,
 				8546FB642463CFEE0061004B /* PhoneVerificationView.swift in Sources */,

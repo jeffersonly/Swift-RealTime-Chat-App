@@ -9,6 +9,7 @@
 import SwiftUI
 import Firebase
 import FirebaseFirestore
+import SDWebImageSwiftUI
 
 //Chat view, shows messages
 struct ChatView: View {
@@ -19,6 +20,9 @@ struct ChatView: View {
     @State var messages = [Message]()
     @State var text = ""
     @State var noMessages = false
+    @State var errMessage = "" //error message
+    @State var alertShowing = false //show alert yes/no
+    @State var profileModal: Bool = false //show profile of other user
     
     
     var body: some View {
@@ -69,18 +73,63 @@ struct ChatView: View {
                     Text("Send")
                 }
             }
-                .navigationBarTitle("\(name)", displayMode: .inline)
-                .navigationBarItems(leading: Button(action: {
-                    self.chat.toggle()
-                }, label: {
-                    Image(systemName: "arrow.left").resizable().frame(width: 20, height: 15)
-                }))
+                .navigationBarTitle(
+                    ""
+//                    "\(name)"
+//                    , displayMode: .inline
+                )
+                .navigationBarItems(
+                leading:
+                    HStack {
+                        //back button
+                        Button(action: {
+                            self.chat.toggle()
+                        }, label: {
+                            Image(systemName: "arrow.left").resizable().frame(width: 20, height: 15)
+                            })
+                        
+                        HStack(alignment: .center) {
+                            Button(action: {
+                                //show the profile of the other user
+                                self.profileModal = true
+                            }) {
+                                AnimatedImage(url: URL(string: picURL)!).resizable().renderingMode(.original).frame(width: 35, height: 35).clipShape(Circle())
+                                Text("\(name)").fontWeight(.heavy).foregroundColor(.black).font(.system(size: 18))
+                            }.sheet(isPresented: $profileModal, content: {
+                                //profile
+                                ContactProfileView(name: self.name, picURL: self.picURL, id: self.id)
+                            })
+                        }.padding(25)
+                    }
+                , trailing:
+                    //insert buttons for calling or something if theres time to develop the functionality
+                    HStack {
+                        Button(action: {
+                            //call user
+                            self.errMessage = "Sorry this feature is not available at the moment."
+                            self.alertShowing.toggle()
+                        }) {
+                            Image(systemName: "phone.fill").resizable().frame(width: 25, height: 18)
+                        }.padding(4)
+                        Button(action: {
+                            //video call user
+                            self.errMessage = "Sorry this feature is not available at the moment."
+                            self.alertShowing.toggle()
+                        }) {
+                            Image(systemName: "video.fill").resizable().frame(width: 25, height: 18)
+                        }.padding(4)
+                    }
+                )
         }.padding()
-            .onAppear {
-                self.getMessages()
+        .onAppear {
+            self.getMessages()
+        }
+        .alert(isPresented: $alertShowing) {
+            Alert(title: Text("Error Message"), message: Text(self.errMessage), dismissButton: .default(Text("Ok")))
         }
     }
     
+    //get messages from firebase database
     func getMessages() {
         let db = Firestore.firestore()
         let uid = Auth.auth().currentUser?.uid
