@@ -5,7 +5,6 @@
 //  Created by Jefferson Ly on 5/6/20.
 //  Copyright © 2020 Jefferson & Sean. All rights reserved.
 //
-
 import SwiftUI
 import Firebase
 import FirebaseFirestore
@@ -21,6 +20,10 @@ struct HomeView: View {
     @State var id = "" //identifies user
     @State var name = "" //name of user/username
     @State var picURL = "" //pictural url for profile
+    
+    @State var showSideMenu = false
+    @State var dark = false
+    
     
     var body: some View {
         
@@ -51,29 +54,24 @@ struct HomeView: View {
                                 }
                                 
                             }
-
+                            
                         }.padding()
                     }
                 }
             }
             .navigationBarTitle("Home", displayMode: .inline)
             .navigationBarItems(leading:
-                    
+                
                 Button(action: {
-                    UserDefaults.standard.set("", forKey: "UserName")
-                    UserDefaults.standard.set("", forKey: "UID")
-                    UserDefaults.standard.set("", forKey: "picURL")
-                    
-                    try! Auth.auth().signOut()
-                    //GIDSignIn.sharedInstance()?.signOut()
-                    
-                    UserDefaults.standard.set(false, forKey: "status")
-                    NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
+                    withAnimation(.default) {
+                        self.showSideMenu.toggle()
+                        print("menu toggle: ", self.showSideMenu)
+                    }
                 }, label: {
-                    Text("Sign Out")
+                    Text("Menu")
                 })
-                    
-            , trailing:
+                
+                , trailing:
                 Button(action: {
                     self.show.toggle()
                 }, label: {
@@ -81,10 +79,24 @@ struct HomeView: View {
                 })
             )
             
+            HStack {
+                SideMenuView(dark: self.$dark, show: self.$showSideMenu, name: self.$id)
+                    .preferredColorScheme(self.dark ? .dark : .light)
+                    .offset(x: self.showSideMenu ? 0 : -UIScreen.main.bounds.width / 1.5)
+                
+                Spacer(minLength: 0)
+            }
+            .background(Color.primary.opacity(self.showSideMenu ? (self.dark ? 0.05 : 0.2) : 0).edgesIgnoringSafeArea(.all))
+            
+            
+            
         }
-        
+            
+            
         .sheet(isPresented: self.$show) {
             NewChatView(name: self.$name, id: self.$id, picURL: self.$picURL, show: self.$show, chat: self.$chat)
+            
+
         }
     }
 }
