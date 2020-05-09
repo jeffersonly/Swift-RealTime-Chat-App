@@ -2,6 +2,25 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:README.md">
+   </FileRef>
+   <Group
+      location = "container:"
+      name = "Images">
+      <FileRef
+         location = "group:demoPic1.png">
+      </FileRef>
+      <FileRef
+         location = "group:demoPic2.png">
+      </FileRef>
+      <FileRef
+         location = "group:demoPic3.png">
+      </FileRef>
+      <FileRef
+         location = "group:demoPic4.png">
+      </FileRef>
+   </Group>
+   <FileRef
       location = "group:Chat App.xcodeproj">
    </FileRef>
    <FileRef
