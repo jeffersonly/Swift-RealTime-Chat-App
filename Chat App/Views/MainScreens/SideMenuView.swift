@@ -102,7 +102,6 @@ struct SideMenuView : View {
             
         }
         .padding(.top, 25)
-            
         .foregroundColor(.primary)
         .padding(.horizontal, 20)
         .background((self.dark ? Color.black : Color.white).edgesIgnoringSafeArea(.all))

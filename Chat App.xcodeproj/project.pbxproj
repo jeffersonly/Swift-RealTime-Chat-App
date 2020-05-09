@@ -30,6 +30,8 @@
 		8546FB842465038D0061004B /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB832465038D0061004B /* AuthView.swift */; };
 		8546FB8624651F380061004B /* CustomRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB8524651F380061004B /* CustomRegisterView.swift */; };
 		8546FB88246534140061004B /* ContactProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB87246534140061004B /* ContactProfileView.swift */; };
+		8546FB8B24660C650061004B /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB8924660C650061004B /* SideMenuView.swift */; };
+		8546FB8C24660C650061004B /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546FB8A24660C650061004B /* MyProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		8546FB832465038D0061004B /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		8546FB8524651F380061004B /* CustomRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRegisterView.swift; sourceTree = "<group>"; };
 		8546FB87246534140061004B /* ContactProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactProfileView.swift; sourceTree = "<group>"; };
+		8546FB8924660C650061004B /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		8546FB8A24660C650061004B /* MyProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		B5A876C579DF9C29D755EE60 /* Pods-Chat App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chat App/Pods-Chat App.debug.xcconfig"; sourceTree = "<group>"; };
 		E8CBC26BC1017677D247125C /* Pods-Chat App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chat App/Pods-Chat App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +175,8 @@
 		8546FB6E2463E1A30061004B /* MainScreens */ = {
 			isa = PBXGroup;
 			children = (
+				8546FB8A24660C650061004B /* MyProfileView.swift */,
+				8546FB8924660C650061004B /* SideMenuView.swift */,
 				8546FB672463D0620061004B /* HomeView.swift */,
 			);
 			path = MainScreens;
@@ -367,10 +373,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8546FB8C24660C650061004B /* MyProfileView.swift in Sources */,
 				8546FB822464E1240061004B /* MessagingFuncsAndStructs.swift in Sources */,
 				8546FB8624651F380061004B /* CustomRegisterView.swift in Sources */,
 				8546FB762463E2920061004B /* CreateUserModel.swift in Sources */,
 				8546FB742463E2850061004B /* CheckUserModel.swift in Sources */,
+				8546FB8B24660C650061004B /* SideMenuView.swift in Sources */,
 				8531FF0A24565B7E001ED017 /* AppDelegate.swift in Sources */,
 				8546FB7E2464DF9E0061004B /* ChatView.swift in Sources */,
 				8546FB682463D0620061004B /* HomeView.swift in Sources */,
