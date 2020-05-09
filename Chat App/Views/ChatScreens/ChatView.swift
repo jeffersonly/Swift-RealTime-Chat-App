@@ -24,6 +24,8 @@ struct ChatView: View {
     @State var alertShowing = false //show alert yes/no
     @State var profileModal: Bool = false //show profile of other user
     
+    @Binding var dark: Bool
+    
     
     var body: some View {
         VStack {
@@ -97,7 +99,7 @@ struct ChatView: View {
                                 Text("\(name)").fontWeight(.heavy).foregroundColor(.black).font(.system(size: 18))
                             }.sheet(isPresented: $profileModal, content: {
                                 //profile
-                                ContactProfileView(name: self.name, picURL: self.picURL, id: self.id)
+                                ContactProfileView(name: self.name, picURL: self.picURL, id: self.id, dark: self.$dark)
                             })
                         }.padding(25)
                     }

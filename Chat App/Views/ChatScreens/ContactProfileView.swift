@@ -19,12 +19,16 @@ struct ContactProfileView: View {
     var id: String
     @State var errMessage = "" //error message
     @State var alertShowing = false //show alert yes/no
+    @Binding var dark : Bool
     
     var body: some View {
         ZStack {
+            self.dark ? Color.black.edgesIgnoringSafeArea(.all) : Color.white.edgesIgnoringSafeArea(.all)
             VStack {
                 AnimatedImage(url: URL(string: picURL)!).resizable().renderingMode(.original).frame(width: 200, height: 200).clipShape(Circle())
-                Text("\(name)").fontWeight(.heavy).foregroundColor(.black).font(.system(size: 32))
+                Text("\(name)").fontWeight(.heavy)
+                    .foregroundColor(self.dark ? Color.white : Color.black)
+                    .font(.system(size: 32))
                 Spacer()
                 Button(action: {
                     self.errMessage = "Sorry! This function is not yet available!"
@@ -52,7 +56,9 @@ struct ContactProfileView: View {
                         Image(systemName: "trash").resizable().frame(width: 22, height: 30)
                         Text("Delete Chat")
                     }
-                }
+                    .offset(y: -60)
+                } 
+                
                 
                 
             }
@@ -61,5 +67,8 @@ struct ContactProfileView: View {
         .alert(isPresented: $alertShowing) {
             Alert(title: Text("Oops, something went wrong!"), message: Text(self.errMessage), dismissButton: .default(Text("Ok")))
         }
+        .frame(width: UIScreen.main.bounds.width + 100, height: UIScreen.main.bounds.height)
+        .offset(y: 25)
+
     }
 }

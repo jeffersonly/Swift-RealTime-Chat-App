@@ -27,14 +27,16 @@ struct HomeView: View {
     
     @State var showSideMenu = false // state of the side menu
     @State var dark = false // state of dark mode
+
     
     
     
     var body: some View {
         
         ZStack {
-            NavigationLink(destination: ChatView(name: self.name, picURL: self.picURL, id: self.id, chat: self.$chat), isActive: self.$chat) {
+            NavigationLink(destination: ChatView(name: self.name, picURL: self.picURL, id: self.id, chat: self.$chat, dark: self.$dark), isActive: self.$chat) {
                 Text("")
+            
                 
             }
             
@@ -59,11 +61,14 @@ struct HomeView: View {
                                     RecentContactsCellView(url: i.picURL, name: i.name, time: i.time, date: i.date, lastMessage: i.lastMessage)
                                 }
                                 
+                             
+                                
                             }
                         
                         }.padding()
                             .offset(y:65)
                     }
+                    
                 }
             }
             .navigationBarTitle("Home", displayMode: .inline)
@@ -72,10 +77,7 @@ struct HomeView: View {
                 Button(action: {
                     withAnimation(.default) {
                         self.showSideMenu.toggle()
-                        print("menu toggle: ", self.showSideMenu)
-                        print(self.currName)
-                        print(self.currUID!)
-                        print(self.currPic)
+
                     }
                 }, label: {
                     Image(systemName: "person.circle").resizable().frame(width: 30, height: 30)
@@ -100,7 +102,7 @@ struct HomeView: View {
             .background(Color.primary.opacity(self.showSideMenu ? (self.dark ? 0.05 : 0.2) : 0).edgesIgnoringSafeArea(.all))
         }
         .sheet(isPresented: self.$show) {
-            NewChatView(name: self.$name, id: self.$id, picURL: self.$picURL, show: self.$show, chat: self.$chat)
+            NewChatView(name: self.$name, id: self.$id, picURL: self.$picURL, show: self.$show, chat: self.$chat, dark: self.$dark)
         }
         
     }
