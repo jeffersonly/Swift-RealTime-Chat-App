@@ -12,10 +12,10 @@ Swift Chatting application
 For the project, the team decided to create a real time chat application. This real time chat application would allow users to message each other, as well as provide additional features. Communication is an essential part of everyday life, so the team wanted to create an alternative solution to this. Many messaging apps already exist; however, the team wanted to get experience with developing an application with these functionalities.
 
 ## Pictures of Views
-![demoPic1](Images/demoPic1.png)
-![demoPic2](Images/demoPic2.png)
-![demoPic3](Images/demoPic3.png)
-![demoPic4](Images/demoPic4.png)
+![demoPic1](demoPic1.png)
+![demoPic2](demoPic2.png)
+![demoPic3](demoPic3.png)
+![demoPic4](demoPic4.png)
 
 ## Tools/Technologies Used
 
