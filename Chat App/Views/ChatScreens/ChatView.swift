@@ -96,7 +96,7 @@ struct ChatView: View {
                                 self.profileModal = true
                             }) {
                                 AnimatedImage(url: URL(string: picURL)!).resizable().renderingMode(.original).frame(width: 35, height: 35).clipShape(Circle())
-                                Text("\(name)").fontWeight(.heavy).foregroundColor(.black).font(.system(size: 18))
+                                Text("\(name)").fontWeight(.heavy).foregroundColor(self.dark ? Color.white : Color.black).font(.system(size: 18))
                             }.sheet(isPresented: $profileModal, content: {
                                 //profile
                                 ContactProfileView(name: self.name, picURL: self.picURL, id: self.id, dark: self.$dark)
