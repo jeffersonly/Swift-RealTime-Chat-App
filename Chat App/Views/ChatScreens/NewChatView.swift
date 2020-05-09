@@ -30,7 +30,7 @@ struct NewChatView: View {
                 Indicator()
             } else {
                 Text("Start a conversation!").font(.title)
-                    .foregroundColor((self.dark ? Color.white : Color.black).opacity(0.5))
+                    .foregroundColor((self.dark ? Color.white : Color.black))
                 
                 
                 VStack() {
@@ -41,7 +41,7 @@ struct NewChatView: View {
                                 self.text = ""
                             }) {
                                 Text("Cancel")
-                            }.foregroundColor(.black)
+                            }.foregroundColor(self.dark ? Color.white : Color.black)
                         }
                     }.padding()
                    // .background(Color("Color"))
@@ -50,7 +50,7 @@ struct NewChatView: View {
                         //if search can't find any matching users
                         //filters data of all users and finds matching results
                         if self.data.users.filter({$0.name.lowercased().contains(self.text.lowercased())}).count == 0{
-                            Text("No Results Found").foregroundColor(Color.black.opacity(0.5)).padding()
+                            Text("No Results Found").foregroundColor(self.dark ? Color.white : Color.black).padding()
                         } else {
                             //if search finds matching users, display them
                             ScrollView(.vertical, showsIndicators: false) {

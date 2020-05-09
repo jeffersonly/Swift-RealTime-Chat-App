@@ -29,13 +29,22 @@ struct ContactProfileView: View {
                 Text("\(name)").fontWeight(.heavy)
                     .foregroundColor(self.dark ? Color.white : Color.black)
                     .font(.system(size: 32))
-                Spacer()
+
                 Button(action: {
                     self.errMessage = "Sorry! This function is not yet available!"
                     self.alertShowing.toggle()
                 }) {
                     HStack {
-                        Text("Mute Notifications")
+                        Text("Mute Notifications").foregroundColor(self.dark ? Color.white : Color.black)
+                    }
+                }
+
+                Button(action: {
+                    self.errMessage = "Sorry! This function is not yet available!"
+                    self.alertShowing.toggle()
+                }) {
+                    HStack {
+                        Text("Block User").foregroundColor(self.dark ? Color.white : Color.black)
                     }
                 }
                 Spacer()
@@ -44,23 +53,11 @@ struct ContactProfileView: View {
                     self.alertShowing.toggle()
                 }) {
                     HStack {
-                        Text("Block User")
+                        Image(systemName: "trash").resizable().frame(width: 22, height: 30).foregroundColor(self.dark ? Color.white : Color.black)
+                        Text("Delete Chat").foregroundColor(self.dark ? Color.white : Color.black)
                     }
-                }
-                Spacer()
-                Button(action: {
-                    self.errMessage = "Sorry! This function is not yet available!"
-                    self.alertShowing.toggle()
-                }) {
-                    HStack {
-                        Image(systemName: "trash").resizable().frame(width: 22, height: 30)
-                        Text("Delete Chat")
-                    }
-                    .offset(y: -60)
-                } 
-                
-                
-                
+                }.offset(y: -60)
+
             }
         }
         .padding()

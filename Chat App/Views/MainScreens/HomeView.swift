@@ -27,17 +27,12 @@ struct HomeView: View {
     
     @State var showSideMenu = false // state of the side menu
     @State var dark = false // state of dark mode
-
-    
-    
     
     var body: some View {
         
         ZStack {
             NavigationLink(destination: ChatView(name: self.name, picURL: self.picURL, id: self.id, chat: self.$chat, dark: self.$dark), isActive: self.$chat) {
                 Text("")
-            
-                
             }
             
             VStack {
@@ -58,20 +53,15 @@ struct HomeView: View {
                                     self.picURL = i.picURL
                                     self.chat.toggle()
                                 }) {
-                                    RecentContactsCellView(url: i.picURL, name: i.name, time: i.time, date: i.date, lastMessage: i.lastMessage)
+                                    RecentContactsCellView(url: i.picURL, name: i.name, time: i.time, date: i.date, lastMessage: i.lastMessage, dark: self.$dark)
                                 }
-                                
-                             
-                                
                             }
-                        
                         }.padding()
                             .offset(y:65)
                     }
-                    
                 }
             }
-            .navigationBarTitle("Home", displayMode: .inline)
+            .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(leading:
                 //menu
                 Button(action: {
@@ -80,16 +70,16 @@ struct HomeView: View {
 
                     }
                 }, label: {
-                    Image(systemName: "person.circle").resizable().frame(width: 30, height: 30)
+                    Image(systemName: "person.circle").resizable().frame(width: 30, height: 30).foregroundColor(self.dark ? Color.white : Color.black)
                 })
                 //start chat with other users
                 , trailing:
                 Button(action: {
                     self.show.toggle()
                 }, label: {
-                    Image(systemName: "square.and.pencil").resizable().frame(width: 25, height: 25)
+                    Image(systemName: "square.and.pencil").resizable().frame(width: 25, height: 25).foregroundColor(self.dark ? Color.white : Color.black)
                 })
-            )
+            ).background((self.dark ? Color.black : Color.white).edgesIgnoringSafeArea(.all))
             
             //this stack is messing with the view of the home page
             HStack {

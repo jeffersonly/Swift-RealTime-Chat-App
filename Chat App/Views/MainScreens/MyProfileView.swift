@@ -10,15 +10,9 @@ import SwiftUI
 import Firebase
 
 struct MyProfileView: View {
-    
-    let currUserEmail = Auth.auth().currentUser?.email
     let currName = UserDefaults.standard.value(forKey: "UserName") as! String
     let currPic = UserDefaults.standard.value(forKey: "picURL") as! String
     let currUserPic = Auth.auth().currentUser?.photoURL
-
- 
-   
-   
 
     
     var body: some View {
@@ -31,16 +25,6 @@ struct MyProfileView: View {
             // displays user profile pic and name
                 UserCellView(url: currPic, name: currName, info: "")
                     .frame(width: 300, height: 300)
-                    
-            // displays user email
-            Text("Email: " + self.currUserEmail!)
-                .font(.system(size: 20))
-                .padding()
-                .offset(y: 50)
- 
-            
-            
-            
         }
     }
 }

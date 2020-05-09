@@ -31,8 +31,8 @@ struct ChatView: View {
         VStack {
             if messages.count == 0 {
                 if self.noMessages {
-                    Text("No Prior Messages!").foregroundColor(Color.black.opacity(0.5)).padding(.top)
-                    Text("Be the one to kickstart the conversation!").foregroundColor(Color.black.opacity(0.5)).padding(.top)
+                    Text("No Prior Messages!").foregroundColor(self.dark ? Color.white : Color.black).padding(.top)
+                    Text("Be the one to kickstart the conversation!").foregroundColor(self.dark ? Color.white : Color.black)
                     Spacer()
                 } else {
                     Spacer()
@@ -72,9 +72,10 @@ struct ChatView: View {
                     sendMessage(user: self.name, uid: self.id, picURL: self.picURL, date: Date(), message: self.text)
                     self.text = ""
                 }) {
-                    Text("Send")
+                    Text("Send").foregroundColor(self.dark ? Color.white : Color.black)
                 }
             }
+                .background((self.dark ? Color.black : Color.white).edgesIgnoringSafeArea(.all))
                 .navigationBarTitle(
                     ""
 //                    "\(name)"
@@ -87,7 +88,7 @@ struct ChatView: View {
                         Button(action: {
                             self.chat.toggle()
                         }, label: {
-                            Image(systemName: "arrow.left").resizable().frame(width: 20, height: 15)
+                            Image(systemName: "arrow.left").resizable().frame(width: 20, height: 15).foregroundColor(self.dark ? Color.white : Color.black)
                             })
                         
                         HStack(alignment: .center) {
@@ -111,14 +112,14 @@ struct ChatView: View {
                             self.errMessage = "Sorry this feature is not available at the moment."
                             self.alertShowing.toggle()
                         }) {
-                            Image(systemName: "phone.fill").resizable().frame(width: 25, height: 18)
+                            Image(systemName: "phone.fill").resizable().frame(width: 25, height: 18).foregroundColor(self.dark ? Color.white : Color.black)
                         }.padding(4)
                         Button(action: {
                             //video call user
                             self.errMessage = "Sorry this feature is not available at the moment."
                             self.alertShowing.toggle()
                         }) {
-                            Image(systemName: "video.fill").resizable().frame(width: 25, height: 18)
+                            Image(systemName: "video.fill").resizable().frame(width: 25, height: 18).foregroundColor(self.dark ? Color.white : Color.black)
                         }.padding(4)
                     }
                 )
@@ -129,6 +130,7 @@ struct ChatView: View {
         .alert(isPresented: $alertShowing) {
             Alert(title: Text("Error Message"), message: Text(self.errMessage), dismissButton: .default(Text("Ok")))
         }
+        .background((self.dark ? Color.black : Color.white).edgesIgnoringSafeArea(.all))
     }
     
     //get messages from firebase database

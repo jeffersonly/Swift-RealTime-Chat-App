@@ -89,7 +89,6 @@ struct AuthView: View {
                     HStack {
                         
                         Text("Create an account using Email").foregroundColor(.blue)
-                        //mail icon not appearing for some reason...
                         Image(systemName: "envelope").resizable().frame(width: 25, height: 25)
                     }
                 }

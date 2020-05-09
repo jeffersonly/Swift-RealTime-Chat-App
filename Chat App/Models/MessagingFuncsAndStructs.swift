@@ -125,6 +125,8 @@ struct RecentContactsCellView: View {
     var date: String
     var lastMessage: String
     
+    @Binding var dark: Bool //dark mode or light mode indicator
+    
     var body: some View {
         HStack {
             AnimatedImage(url: URL(string: url)!).resizable().renderingMode(.original).frame(width: 55, height: 55).clipShape(Circle())
@@ -132,13 +134,13 @@ struct RecentContactsCellView: View {
             VStack {
                 HStack {
                     VStack(alignment: .leading, spacing: 6) {
-                        Text(name).foregroundColor(.black)
-                        Text(lastMessage).foregroundColor(.gray)
+                        Text(name).foregroundColor(self.dark ? Color.white : Color.black)
+                        Text(lastMessage).foregroundColor(self.dark ? Color.white : Color.black)
                     }
                     Spacer()
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(date).foregroundColor(.gray)
-                        Text(time).foregroundColor(.gray)
+                        Text(date).foregroundColor(self.dark ? Color.white : Color.gray)
+                        Text(time).foregroundColor(self.dark ? Color.white : Color.gray)
                     }
                 }
                 Divider()
@@ -169,7 +171,7 @@ struct UserCellView: View {
             VStack {
                 HStack {
                     VStack(alignment: .leading, spacing: 6) {
-                        Text(name).foregroundColor(.black) //name of user
+                        Text(name).foregroundColor(.gray) //name of user
                         Text(info).foregroundColor(.gray) //users info/description they set
                     }
                     Spacer()

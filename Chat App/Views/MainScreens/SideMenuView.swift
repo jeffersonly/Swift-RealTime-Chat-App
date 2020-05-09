@@ -69,11 +69,14 @@ struct SideMenuView : View {
             .offset(y: -225)
             
             Group {
-                // navigation to my profile view
-                NavigationLink(destination: MyProfileView()) {
-                    Text("My Profile")
+                if(!self.dark) {
+                    // navigation to my profile view
+                    NavigationLink(destination: MyProfileView()) {
+                        Text("My Profile")
+                    }
+                    .offset(x: -80, y:-450)
                 }
-                .offset(x: -80, y:-450)
+                
     
                 // button to sign out
               Button(action: {
