@@ -46,10 +46,10 @@ struct HomeView: View {
                         Indicator()
                     }
                 } else {
+                    //display recent conversations with other users
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack(spacing: 12) {
                             ForEach(data.recents.sorted(by: {$0.timeStamp > $1.timeStamp})) { i in
-                                
                                 Button(action: {
                                     self.id = i.id
                                     self.name = i.name
@@ -60,7 +60,7 @@ struct HomeView: View {
                                 }
                                 
                             }
-                            
+                        
                         }.padding()
                             .offset(y:65)
                     }
@@ -68,7 +68,7 @@ struct HomeView: View {
             }
             .navigationBarTitle("Home", displayMode: .inline)
             .navigationBarItems(leading:
-                
+                //menu
                 Button(action: {
                     withAnimation(.default) {
                         self.showSideMenu.toggle()
@@ -78,9 +78,9 @@ struct HomeView: View {
                         print(self.currPic)
                     }
                 }, label: {
-                    Text("Menu")
+                    Image(systemName: "person.circle").resizable().frame(width: 30, height: 30)
                 })
-                
+                //start chat with other users
                 , trailing:
                 Button(action: {
                     self.show.toggle()
@@ -89,24 +89,19 @@ struct HomeView: View {
                 })
             )
             
+            //this stack is messing with the view of the home page
             HStack {
                 SideMenuView(dark: self.$dark, show: self.$showSideMenu)
                     .preferredColorScheme(self.dark ? .dark : .light)
                     .offset(x: self.showSideMenu ? 0 : -UIScreen.main.bounds.width / 1.5)
-                
+              
                 Spacer(minLength: 0)
             }
             .background(Color.primary.opacity(self.showSideMenu ? (self.dark ? 0.05 : 0.2) : 0).edgesIgnoringSafeArea(.all))
-            
-            
-            
         }
-            
-            
         .sheet(isPresented: self.$show) {
             NewChatView(name: self.$name, id: self.$id, picURL: self.$picURL, show: self.$show, chat: self.$chat)
-            
-
         }
+        
     }
 }

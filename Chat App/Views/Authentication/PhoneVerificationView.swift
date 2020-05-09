@@ -12,7 +12,7 @@ import Firebase
 struct PhoneVerificationView: View {
     
     @State var code = ""
-    @Binding var show : Bool
+    @Binding var show : Bool //back button showing or not
     @Binding var ID: String
     @State var message = "" //error message
     @State var alertShowing = false //show alert yes/no
@@ -23,7 +23,7 @@ struct PhoneVerificationView: View {
         
         ZStack(alignment: .topLeading) {
             GeometryReader {_ in
-                VStack(spacing: 2) {
+                VStack(spacing: 10) {
                     Image("chatLogo")
                     Text("Verification Code").font(.largeTitle).fontWeight(.heavy).foregroundColor(.blue)
                     Text("Please enter the verification code sent to your device!")

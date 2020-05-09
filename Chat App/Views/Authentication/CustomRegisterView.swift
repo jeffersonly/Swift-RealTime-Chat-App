@@ -24,9 +24,9 @@ struct CustomRegisterView: View {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: 20) {
+            VStack(spacing: 10) {
                 Image("chatLogo").resizable().frame(width: 200, height: 200)
-                Text("Register for an Account!").font(.largeTitle).fontWeight(.heavy).foregroundColor(.blue)
+                Text("Register Here!").font(.largeTitle).fontWeight(.heavy).foregroundColor(.blue)
                 Text("Please fill in the fields below!")
                     .multilineTextAlignment(.center)
                     .font(.body)

@@ -6,38 +6,6 @@
 //  Copyright © 2020 Jefferson & Sean. All rights reserved.
 //
 
-//import SwiftUI
-//import Firebase
-//import FirebaseAuth
-//
-//struct ContentView: View {
-//    @EnvironmentObject var session: SessionStore
-//
-//    func getUser() {
-//        session.listen()
-//    }
-//
-//    var body: some View {
-//        Group {
-//            if(session.session != nil) {
-////                Text("Welcome back \(session.session!.name ?? "user")")
-////                Button(action: session.signOut) {
-////                    Text("Sign Out")
-////                }
-//                HomeView()
-//            } else {
-//                AuthView()
-//            }
-//        }.onAppear(perform: getUser)
-//    }
-//}
-//
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView().environmentObject(SessionStore())
-//    }
-//}
-
 import SwiftUI
 import Firebase
 import GoogleSignIn
@@ -56,10 +24,9 @@ struct ContentView: View {
                     HomeView().environmentObject(MainObservable())
                 }
             } else {
-//                NavigationView {
-//                    PhoneRegisterView()
-//                }
-                AuthView()
+                NavigationView {
+                    AuthView()
+                }
             }
             
         }.onAppear {
@@ -89,61 +56,63 @@ class MainObservable: ObservableObject {
         let db = Firestore.firestore()
         let uid = Auth.auth().currentUser?.uid
         
-        db.collection("users").document(uid!).collection("recents").order(by: "date", descending: true).addSnapshotListener { (snap, err) in
-            
-            if err != nil {
-                print((err?.localizedDescription)!)
-                self.noRecents = true
-                return
-            }
-            
-            if snap!.isEmpty {
-                self.noRecents = true
-            }
-            
-            for i in snap!.documentChanges {
+        if(uid != nil) {
+            db.collection("users").document(uid!).collection("recents").order(by: "date", descending: true).addSnapshotListener { (snap, err) in
                 
-                if i.type == .added {
-                    let id = i.document.documentID
-                    let name = i.document.get("name") as! String
-                    let picURL = i.document.get("picURL") as! String
-                    let lastMessage = i.document.get("lastMessage") as! String
-                    let dateStamp = i.document.get("date") as! Timestamp
-                    
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "MM/dd/yy"
-                    let date = dateFormatter.string(from: dateStamp.dateValue())
-                    
-                    dateFormatter.dateFormat = "hh:mm a"
-                    let time = dateFormatter.string(from: dateStamp.dateValue())
-                    
-                    self.recents.append(Recent(id: id, name: name, picURL: picURL, lastMessage: lastMessage, time: time, date: date, timeStamp: dateStamp.dateValue()))
+                if err != nil {
+                    print((err?.localizedDescription)!)
+                    self.noRecents = true
+                    return
                 }
                 
-                if i.type == .modified {
-                    let id = i.document.documentID
-                    let lastMessage = i.document.get("lastMessage") as! String
-                    let dateStamp = i.document.get("date") as! Timestamp
+                if snap!.isEmpty {
+                    self.noRecents = true
+                }
+                
+                for i in snap!.documentChanges {
                     
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "MM/dd/yy"
-                    let date = dateFormatter.string(from: dateStamp.dateValue())
+                    if i.type == .added {
+                        let id = i.document.documentID
+                        let name = i.document.get("name") as! String
+                        let picURL = i.document.get("picURL") as! String
+                        let lastMessage = i.document.get("lastMessage") as! String
+                        let dateStamp = i.document.get("date") as! Timestamp
+                        
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "MM/dd/yy"
+                        let date = dateFormatter.string(from: dateStamp.dateValue())
+                        
+                        dateFormatter.dateFormat = "hh:mm a"
+                        let time = dateFormatter.string(from: dateStamp.dateValue())
+                        
+                        self.recents.append(Recent(id: id, name: name, picURL: picURL, lastMessage: lastMessage, time: time, date: date, timeStamp: dateStamp.dateValue()))
+                    }
                     
-                    dateFormatter.dateFormat = "hh:mm a"
-                    let time = dateFormatter.string(from: dateStamp.dateValue())
-                    
-                    for j in 0..<self.recents.count {
-                        if self.recents[j].id == id {
-                            self.recents[j].lastMessage = lastMessage
-                            self.recents[j].time = time
-                            self.recents[j].date = date
-                            self.recents[j].timeStamp = dateStamp.dateValue()
+                    if i.type == .modified {
+                        let id = i.document.documentID
+                        let lastMessage = i.document.get("lastMessage") as! String
+                        let dateStamp = i.document.get("date") as! Timestamp
+                        
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "MM/dd/yy"
+                        let date = dateFormatter.string(from: dateStamp.dateValue())
+                        
+                        dateFormatter.dateFormat = "hh:mm a"
+                        let time = dateFormatter.string(from: dateStamp.dateValue())
+                        
+                        for j in 0..<self.recents.count {
+                            if self.recents[j].id == id {
+                                self.recents[j].lastMessage = lastMessage
+                                self.recents[j].time = time
+                                self.recents[j].date = date
+                                self.recents[j].timeStamp = dateStamp.dateValue()
+                            }
                         }
                     }
+                    
                 }
                 
             }
-            
         }
     }
 }

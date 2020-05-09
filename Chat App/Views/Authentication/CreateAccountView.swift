@@ -20,7 +20,7 @@ struct CreateAccount: View {
     
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 15) {
+        VStack(alignment: .leading, spacing: 10) {
             Text("Fill in the fields to create your account!").font(.largeTitle).fontWeight(.heavy).foregroundColor(.blue)
             HStack {
                 Spacer()

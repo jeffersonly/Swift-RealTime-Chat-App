@@ -25,7 +25,7 @@ struct AuthView: View {
         NavigationView {
             VStack(spacing: 20) {
                 Image("chatLogo").resizable().frame(width: 200, height: 200)
-                Text("Welcome to the Chat App!").font(.largeTitle).fontWeight(.heavy).foregroundColor(.blue)
+                Text("Messager").font(.largeTitle).fontWeight(.heavy).foregroundColor(.blue)
                 Text("Login to your account!")
                     .multilineTextAlignment(.center)
                     .font(.body)
@@ -87,12 +87,10 @@ struct AuthView: View {
                 
                 NavigationLink(destination: CustomRegisterView()) {
                     HStack {
-                        Text("I'm a new user.")
-                            .font(.system(size: 14, weight: .light))
-                            .foregroundColor(.primary)
-                        Text("Create an account using Email")
-                            .font(.system(size: 14, weight: .semibold))
-                            .foregroundColor(.blue)
+                        
+                        Text("Create an account using Email").foregroundColor(.blue)
+                        //mail icon not appearing for some reason...
+                        Image(systemName: "envelope").resizable().frame(width: 25, height: 25)
                     }
                 }
                 
@@ -100,7 +98,7 @@ struct AuthView: View {
                 
                 NavigationLink(destination: PhoneRegisterView()) {
                     HStack {
-                        Text("Login using Phone Number")
+                        Text("Login using Phone Number").foregroundColor(.blue)
                         Image(systemName: "phone").resizable().frame(width: 25, height: 25)
                     }
                 }
