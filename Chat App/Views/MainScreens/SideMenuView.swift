@@ -7,16 +7,23 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
+import GoogleSignIn
 
 struct SideMenuView : View {
     
-    @Binding var dark : Bool
-    @Binding var show: Bool
-    @Binding var name: String
+    let currUID = Auth.auth().currentUser?.uid // current user id
+    let currName = UserDefaults.standard.value(forKey: "UserName") as! String // current user name
+    let currPic = UserDefaults.standard.value(forKey: "picURL") as! String // current profile pic
+    
+    @Binding var dark : Bool // binding variable for dark mode
+    @Binding var show: Bool // binding variable for show
     
     var body: some View {
         
         VStack {
+    
             HStack {
                 Button(action: {
                     withAnimation(.default) {
@@ -24,7 +31,7 @@ struct SideMenuView : View {
                     }
                 }) {
                     Text("")
-                       
+                    
                 }
                 Spacer()
                 
@@ -33,18 +40,10 @@ struct SideMenuView : View {
             .padding(.top)
             .padding(.bottom, 25)
             
-            Image("profilePic")
-                .resizable()
-                .frame(width: 80, height: 80)
-                .clipShape(Circle())
-            
-            VStack(spacing: 12) {
-                Text(self.name)
-                
-
-            }
+            UserCellView(url:currPic, name: currName, info: "")
             .padding(.top, 25)
             
+            // dark mode text and toggle
             HStack(spacing: 22) {
                 
                 Text("Dark Mode")
@@ -52,6 +51,7 @@ struct SideMenuView : View {
                 
                 Spacer()
                 
+                // toggles dark mode or light mode
                 Button(action: {
                     self.dark.toggle()
                     
@@ -70,39 +70,31 @@ struct SideMenuView : View {
             .offset(y: -225)
             
             Group {
-                Button(action: {
-                    
-                }) {
-                    HStack(spacing: 22) {
-                        Text("My Profile")
-                        
-                    }
+                // navigation to my profile view
+                NavigationLink(destination: MyProfileView()) {
+                    Text("My Profile")
                 }
                 .offset(x: -80, y:-450)
-                Button(action: {
+    
+                // button to sign out
+              Button(action: {
+                    UserDefaults.standard.set("", forKey: "UserName")
+                    UserDefaults.standard.set("", forKey: "UID")
+                    UserDefaults.standard.set("", forKey: "picURL")
                     
-                }) {
-                    HStack(spacing: 22) {
-                        Text("Contacts")
-                        
-                    }
-                }
-                .offset(x: -83, y:-400)
-                
-                Button(action: {
+                    try! Auth.auth().signOut()
+                    //GIDSignIn.sharedInstance()?.signOut()
                     
-                }) {
-                    HStack(spacing: 22) {
-                        Text("Settings")
-                        
-                    }
-                }
-                .offset(x: -85, y:-350)
+                    UserDefaults.standard.set(false, forKey: "status")
+                    NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
+                }, label: {
+                    Text("Sign Out")
+                })
+                .offset(x: -85, y: -100)
             }
             
         }
         .padding(.top, 25)
-            
         .foregroundColor(.primary)
         .padding(.horizontal, 20)
         .background((self.dark ? Color.black : Color.white).edgesIgnoringSafeArea(.all))

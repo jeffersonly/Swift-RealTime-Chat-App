@@ -13,6 +13,10 @@ import SDWebImageSwiftUI
 
 struct HomeView: View {
     
+    let currUID = Auth.auth().currentUser?.uid
+    let currName = UserDefaults.standard.value(forKey: "UserName") as! String
+    let currPic = UserDefaults.standard.value(forKey: "picURL") as! String
+    
     @State var uid = UserDefaults.standard.value(forKey: "UserName") as! String
     @EnvironmentObject var data: MainObservable
     @State var show = false //whether or not chat view will be showing
@@ -21,8 +25,9 @@ struct HomeView: View {
     @State var name = "" //name of user/username
     @State var picURL = "" //pictural url for profile
     
-    @State var showSideMenu = false
-    @State var dark = false
+    @State var showSideMenu = false // state of the side menu
+    @State var dark = false // state of dark mode
+    
     
     
     var body: some View {
@@ -30,6 +35,7 @@ struct HomeView: View {
         ZStack {
             NavigationLink(destination: ChatView(name: self.name, picURL: self.picURL, id: self.id, chat: self.$chat), isActive: self.$chat) {
                 Text("")
+                
             }
             
             VStack {
@@ -56,6 +62,7 @@ struct HomeView: View {
                             }
                             
                         }.padding()
+                            .offset(y:65)
                     }
                 }
             }
@@ -66,6 +73,9 @@ struct HomeView: View {
                     withAnimation(.default) {
                         self.showSideMenu.toggle()
                         print("menu toggle: ", self.showSideMenu)
+                        print(self.currName)
+                        print(self.currUID!)
+                        print(self.currPic)
                     }
                 }, label: {
                     Text("Menu")
@@ -80,7 +90,7 @@ struct HomeView: View {
             )
             
             HStack {
-                SideMenuView(dark: self.$dark, show: self.$showSideMenu, name: self.$id)
+                SideMenuView(dark: self.$dark, show: self.$showSideMenu)
                     .preferredColorScheme(self.dark ? .dark : .light)
                     .offset(x: self.showSideMenu ? 0 : -UIScreen.main.bounds.width / 1.5)
                 

@@ -7,10 +7,55 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct MyProfileView: View {
+    
+    let currUserEmail = Auth.auth().currentUser?.email
+    let currName = UserDefaults.standard.value(forKey: "UserName") as! String
+    let currPic = UserDefaults.standard.value(forKey: "picURL") as! String
+    let currUserPic = Auth.auth().currentUser?.photoURL
+
+ 
+   
+   
+
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack {
+            // header displaying my profile
+            Text("My Profile")
+                .font(.system(size: 30))
+            
+            // displays user profile pic and name
+                UserCellView(url: currPic, name: currName, info: "")
+                    .frame(width: 300, height: 300)
+                    
+            // displays user email
+            Text("Email: " + self.currUserEmail!)
+                .font(.system(size: 20))
+                .padding()
+                .offset(y: 50)
+ 
+            
+            
+            
+        }
+    }
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
     }
 }
 
