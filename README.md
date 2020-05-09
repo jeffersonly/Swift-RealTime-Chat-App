@@ -4,7 +4,7 @@ Swift Chatting application
 ## Table of Contents
 1. [Project Introduction](#project-introduction)
 2. [Pictures of Views](#pictures-of-views)
-3. [Tools/Technologies Used](#tools/technologies-used)
+3. [Tools/Technologies Used](#tools-and-technologies-used)
 4. [How to Run the Project Locally](#how-to-run-the-project-locally)
 
 ## Project Introduction
@@ -17,7 +17,7 @@ For the project, the team decided to create a real time chat application. This r
 ![demoPic3](demoPic3.png)
 ![demoPic4](demoPic4.png)
 
-## Tools/Technologies Used
+## Tools and Technologies Used
 
 - XCode
 - Swift
@@ -25,6 +25,7 @@ For the project, the team decided to create a real time chat application. This r
 - Firebase
 - CocoaPods
 - UIKit
+- SDWebImageSwiftUI Library
 
 ## How To Run the Project Locally
 
