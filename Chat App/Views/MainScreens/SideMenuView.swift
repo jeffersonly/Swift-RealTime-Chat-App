@@ -54,7 +54,6 @@ struct SideMenuView : View {
                 // toggles dark mode or light mode
                 Button(action: {
                     self.dark.toggle()
-                    
                     UIApplication.shared.windows.first?.rootViewController?.view.overrideUserInterfaceStyle = self.dark ? .dark : .light
                     print("dark mode: ", self.dark)
                 }) {

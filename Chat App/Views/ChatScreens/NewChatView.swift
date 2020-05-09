@@ -22,12 +22,16 @@ struct NewChatView: View {
     @Binding var chat: Bool
     @State var text = "" //text for search bar
     
+    @Binding var dark: Bool // boolean for dark mode
+    
     var body: some View {
         VStack(alignment: .leading) {
             if self.data.users.count == 0 {
                 Indicator()
             } else {
-                Text("Start a conversation!").font(.title).foregroundColor(Color.black.opacity(0.5))
+                Text("Start a conversation!").font(.title)
+                    .foregroundColor((self.dark ? Color.white : Color.black).opacity(0.5))
+                
                 
                 VStack() {
                     HStack {
@@ -40,7 +44,7 @@ struct NewChatView: View {
                             }.foregroundColor(.black)
                         }
                     }.padding()
-                    .background(Color("Color"))
+                   // .background(Color("Color"))
                     
                     if self.text != "" {
                         //if search can't find any matching users
@@ -60,10 +64,13 @@ struct NewChatView: View {
                                             self.chat.toggle()
                                         }) {
                                             UserCellView(url: i.picURL, name: i.name, info: i.info)
+                                            
                                         }
+                                      
                                     }
                                 }
                             }
+                                .background(self.dark ? Color.black : Color.white).edgesIgnoringSafeArea(.all)
                         }
                     } else {
                         //Scroll view, contains all different users from database and displays them
@@ -79,12 +86,16 @@ struct NewChatView: View {
                                     }) {
                                         UserCellView(url: i.picURL, name: i.name, info: i.info)
                                     }
+                                    .background(self.dark ? Color.black : Color.white).edgesIgnoringSafeArea(.all)
                                 }
                             }
                         }
+                       
                     }
                 }
             }
         }.padding()
+        .preferredColorScheme(self.dark ? .dark : .light)
+        .background((self.dark ? Color.black : Color.white).edgesIgnoringSafeArea(.all))
     }
 }
