@@ -91,6 +91,7 @@ struct HomeView: View {
             }
             .background(Color.primary.opacity(self.showSideMenu ? (self.dark ? 0.05 : 0.2) : 0).edgesIgnoringSafeArea(.all))
         }
+        .background((self.dark ? Color.black : Color.white).edgesIgnoringSafeArea(.all))
         .sheet(isPresented: self.$show) {
             NewChatView(name: self.$name, id: self.$id, picURL: self.$picURL, show: self.$show, chat: self.$chat, dark: self.$dark)
         }
